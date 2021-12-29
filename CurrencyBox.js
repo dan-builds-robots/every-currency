@@ -21,35 +21,33 @@ let ready = false
 
 // let conversion = fetchConversion()
 
-const CurrencyBox = ({ currencyAbbr, flag, flagUri, conversion }) => (
+const CurrencyBox = ({ currencyAbbr, currency, flagUri, conversion, symbol, pressFunction }) => (
 
     
-    <View style={{alignItems: 'center', margin: 10}}>
+    <TouchableWithoutFeedback
+    
+        onPress = {pressFunction}
 
-        <Text style={{fontWeight: 'bold'}}>{currencyAbbr}</Text>
+    >
 
-        {/* <Text>${fetchConversion()}</Text> */}
-        {/* <Text>${(parseFloat(JSON.stringify(fetchConversion())) * cost).toFixed(2)}</Text> */}
-{/* 
-        {
-        
-        ready && 
-        <Text>{JSON.stringify(fetchConversion())}</Text>
+        <View style={{alignItems: 'center', margin: 10}}> 
 
-        } */}
-        
-        <Text>${conversion}</Text>
-        
+            <Text style={{fontWeight: 'bold'}}>{currencyAbbr}</Text>
 
-        <Image
+            <Text>{symbol}{conversion}</Text>
+            
 
-            source={{uri: flagUri}}
+            <Image
 
-            style={{width:70, height: 70, margin: 0, padding: 0}}
+                source={{uri: flagUri}}
 
-        />
+                style={{width:70, height: 70, margin: 0, padding: 0}}
 
-    </View>
+            />
+
+        </View>
+
+    </TouchableWithoutFeedback>
     
 )
 
